@@ -1,0 +1,51 @@
+{
+  "name": "bt-lang",
+  "displayName": "BT Language Extension",
+  "description": "A code highlighting extension for the BT programming language.",
+  "version": "0.0.2",
+  "publisher": "asxldb",
+  "icon": "icon.png",
+  "homepage": "https://bts.wang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bt-lang/editor-extensions"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "bt",
+    "bt-lang",
+    "code highlighting",
+    "syntax highlighting"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:bt"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "bt",
+        "aliases": [
+          "BT",
+          "BT Language"
+        ],
+        "extensions": [
+          ".bt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bt",
+        "scopeName": "source.bt",
+        "path": "./syntaxes/bt.tmLanguage.json"
+      }
+    ]
+  }
+}
