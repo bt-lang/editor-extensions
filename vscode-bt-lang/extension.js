@@ -36,28 +36,50 @@ function activate(context) {
 		});
 	});
 	context.subscriptions.push(highlight);
+	let terminal; // 用于存储终端实例的变量（尽管在这个例子中我们每次都创建新的）
 
-	const run = vscode.commands.registerCommand('extension.runBTScript', () => {
-        // 获取 bt.exe 的路径
-        const exePath = path.join(context.extensionPath, 'bt.exe'); // 替换为你的 bt.exe 路径
+	const run = vscode.commands.registerCommand('extension.runBTScript', () => {  
+		vscode.window.showInformationMessage(
+			'The extension has been successfully installed, you need to restart VS Code to apply the changes.',
+			{ modal: true }, // modal 为 true 会让对话框成为模态的，阻止其他操作
+			'Restart' // 添加按钮
+		).then(selection => {
+			if (selection === 'Restart') {
+				// 触发重启 VS Code
+				vscode.commands.executeCommand('workbench.action.reloadWindow');
+			}
+		});
 
-        // 获取当前工作区的第一个文件夹的路径
-        const workspaceFolders = vscode.workspace.workspaceFolders;
-        if (!workspaceFolders) {
-            vscode.window.showErrorMessage("No workspace folder is open.");
-            return;
+        // 获取当前工作区的第一个文件夹的路径  
+        const workspaceFolders = vscode.workspace.workspaceFolders;  
+        if (!workspaceFolders) {  
+            vscode.window.showErrorMessage("No workspace folder is open.");  
+            return;  
         }
-        // 运行 bt.exe
-        execFile(exePath, [], (error, stdout, stderr) => {
-            if (error) {
-                vscode.window.showErrorMessage(`Error: ${stderr}`);
-                return;
-            }
-            vscode.window.showInformationMessage(`Output: ${stdout}`);
-        });
-    });
+  
+        const workspacePath = workspaceFolders[0].uri.fsPath; // 获取第一个工作区的路径  
+        const exePath = path.join(workspacePath, 'bt.exe'); // 构建编译器的路径  
 
-    context.subscriptions.push(run);
+		// vscode.window.showInformationMessage(`Output: ${exePath}`); 
+
+
+        // 检查是否已经有一个终端实例存在  
+        if (!terminal) {
+            // 如果没有，则创建一个新的终端实例  
+            terminal = vscode.window.createTerminal('BT Script Terminal');  
+            // 可以选择显示终端（通常默认是显示的）  
+            terminal.show();  
+        } else {  
+            // 如果已经存在，则清除终端中的任何先前内容  
+            terminal.clear();  
+        }  
+		terminal.show(true);
+  
+        // 在终端中运行 bt.exe  
+        terminal.sendText(`${exePath}`); // 注意：这里使用了双引号来确保路径中的空格被正确处理  
+    });  
+  
+    context.subscriptions.push(run); 
 }
 
 // This method is called when your extension is deactivated

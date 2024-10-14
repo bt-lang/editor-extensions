@@ -23,9 +23,6 @@
     "syntax highlighting"
   ],
   "main": "./extension.js",
-  "activationEvents": [
-    "onCommand:extension.runBTScript"
-  ],
   "contributes": {
     "languages": [
       {
@@ -51,7 +48,7 @@
       "activitybar": [
         {
           "id": "runBTScript",
-          "title": "Run Script",
+          "title": "运行bt脚本",
           "icon": "run.svg"
         }
       ]
@@ -59,12 +56,18 @@
     "views": {
       "runBTScript": [
         {
-          "id": "package-dependencies",
-          "name": "Dependencies",
-          "when": "false"
+          "id": "runBTScript",
+          "name": "运行bt脚本"
+
         }
       ]
     },
+    "viewsWelcome": [
+      {
+        "view":"runBTScript",
+        "contents": "默认执行当前目录的main.bt文件，请确保当前目录存在main.bt文件，若不存在，则以命令行模式运行BT语言编译器\n[运行](command:extension.runBTScript)\n\n官网：[https://bts.wang](https://bts.wang)\n文档：[https://bts.wang/doc](https://bts.wang/doc)"
+      }
+    ],
     "commands": [
       {
         "command": "extension.runBTScript",
@@ -76,6 +79,6 @@
     ]
   },
   "dependencies": {
-    "bt-lang": "file:"
+    "bt-lang": "1.0.8"
   }
 }
