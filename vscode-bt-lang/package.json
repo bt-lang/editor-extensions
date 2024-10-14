@@ -2,7 +2,7 @@
   "name": "bt-lang",
   "displayName": "BT-lang",
   "description": "A code highlighting extension for the BT programming language.",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "publisher": "BT",
   "icon": "icon.png",
   "homepage": "https://bts.wang",
@@ -24,7 +24,7 @@
   ],
   "main": "./extension.js",
   "activationEvents": [
-    "onLanguage:bt"
+    "onCommand:extension.runBTScript"
   ],
   "contributes": {
     "languages": [
@@ -46,6 +46,33 @@
         "scopeName": "source.bt",
         "path": "./syntaxes/bt.tmLanguage.json"
       }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "runBTScript",
+          "title": "Run Script",
+          "icon": "run.svg"
+        }
+      ]
+    },
+    "views": {
+      "runBTScript": [
+        {
+          "id": "package-dependencies",
+          "name": "Dependencies",
+          "when": "false"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.runBTScript",
+        "title": "Run Script"
+      }
+    ],
+    "activationEvents": [
+      "onCommand:extension.runBTScript"
     ]
   },
   "dependencies": {
