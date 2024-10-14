@@ -1,9 +1,9 @@
 {
   "name": "bt-lang",
-  "displayName": "BT Language Extension",
+  "displayName": "BT-lang",
   "description": "A code highlighting extension for the BT programming language.",
   "version": "0.0.2",
-  "publisher": "asxldb",
+  "publisher": "BT",
   "icon": "icon.png",
   "homepage": "https://bts.wang",
   "repository": {
@@ -47,5 +47,8 @@
         "path": "./syntaxes/bt.tmLanguage.json"
       }
     ]
+  },
+  "dependencies": {
+    "bt-lang": "file:"
   }
 }

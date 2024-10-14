@@ -21,9 +21,18 @@ function activate(context) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('BT Language Code Highlighting is now active!');
+		// 显示重启提示
+		vscode.window.showInformationMessage(
+			'The extension has been successfully installed, you need to restart VS Code to apply the changes.',
+			{ modal: true }, // modal 为 true 会让对话框成为模态的，阻止其他操作
+			'Restart' // 添加按钮
+		).then(selection => {
+			if (selection === 'Restart') {
+				// 触发重启 VS Code
+				vscode.commands.executeCommand('workbench.action.reloadWindow');
+			}
+		});
 	});
-
 	context.subscriptions.push(disposable);
 }
 
