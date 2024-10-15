@@ -114,7 +114,7 @@
     },
     {
       "name": "support.type.string.bt",
-      "match": "\\b(len|char|char_code|concat|ends_with|contain|index|last_index|repeat|replace|search|match|slice|split|starts_with|substring|to_lowercase|to_uppercase|trim|to_string|escape_html|unescape_html)\\b"
+      "match": "\\b(len|char|char_code|concat|ends_with|contain|index|last_index|repeat|replace|search|match|slice|split|starts_with|substring|to_lowercase|to_uppercase|trim|to_string|escape_html|unescape_html|parse)\\b"
     },
     {
       "name": "support.type.array.bt",

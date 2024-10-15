@@ -4,7 +4,7 @@
   "description": "A code highlighting extension for the BT programming language.",
   "version": "1.0.0",
   "publisher": "BT",
-  "icon": "icon.png",
+  "icon": "image/icon.png",
   "homepage": "https://bts.wang",
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
     "syntax highlighting"
   ],
   "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:bt-lang.highlight"
+  ],
   "contributes": {
     "languages": [
       {
@@ -34,7 +37,7 @@
         "extensions": [
           ".bt"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./syntaxes/language-configuration.json"
       }
     ],
     "grammars": [
@@ -49,7 +52,7 @@
         {
           "id": "runBTScript",
           "title": "运行bt脚本",
-          "icon": "run.svg"
+          "icon": "image/run.svg"
         }
       ]
     },
@@ -58,27 +61,27 @@
         {
           "id": "runBTScript",
           "name": "运行bt脚本"
-
         }
       ]
     },
     "viewsWelcome": [
       {
-        "view":"runBTScript",
-        "contents": "默认执行当前目录的main.bt文件，请确保当前目录存在main.bt文件，若不存在，则以命令行模式运行BT语言编译器\n[运行](command:extension.runBTScript)\n\n官网：[https://bts.wang](https://bts.wang)\n文档：[https://bts.wang/doc](https://bts.wang/doc)"
+        "view": "runBTScript",
+        "contents": "默认使用当前目录的BT语言编译器，若不存在，则使用本扩展内置的BT语言编译器\n[运行](command:extension.runBTScript)\n\n官网：[https://bts.wang](https://bts.wang)\n文档：[https://bts.wang/doc](https://bts.wang/doc)"
       }
     ],
     "commands": [
       {
+        "command": "bt-lang.highlight",
+        "title": "BT Language Code Highlight"
+      },
+      {
         "command": "extension.runBTScript",
-        "title": "Run Script"
+        "title": "Run BT Script"
       }
-    ],
-    "activationEvents": [
-      "onCommand:extension.runBTScript"
     ]
   },
   "dependencies": {
-    "bt-lang": "1.0.8"
+    "bt-lang": "file:"
   }
 }
