@@ -1,0 +1,150 @@
+%YAML 1.2
+---
+name: BT
+file_extensions:
+  - bt
+scope: source.bt
+contexts:
+  main:
+    # 单行注释以 '//' 开始，并在行尾结束
+    - match: '//'
+      scope: comment.line.double-slash.bt
+      push: line_comment
+
+    # 多行注释以 '/*' 开始，并在 '*/' 结束
+    - match: '/\\*'
+      scope: punctuation.definition.comment.begin.bt
+      push: block_comment
+
+    # 正则表达式，以斜杠开始和结束
+    - match: '(?<![\w\)\]])/(?![\s=])'
+      scope: string.regexp.bt
+      push: regex
+
+    # 算术和逻辑运算符
+    - match: '[=+\-*/%^&<>!@~|?]+'
+      scope: keyword.operator.bt
+
+    # 关键字控制语句
+    - match: '\b(pub|fn|class|return|for|in|while|loop|break|continue|delete|if|elseif|else|let|import|print|println)\b'
+      scope: keyword.control.bt
+
+    # 常量关键字
+    - match: '\b(true|false|null|empty|undefined|Infinity)\b'
+      scope: constant.language.bt
+
+    # 数字常量，包括十六进制和浮点数
+    - match: '\b(0[xX][0-9a-fA-F]+|\d+(\.\d+)?([eE][+-]?\d+)?)\b'
+      scope: constant.numeric.bt
+
+    # 单引号字符串
+    - match: "'"
+      scope: punctuation.definition.string.begin.bt
+      push: single_quoted_string
+
+    # 双引号字符串
+    - match: '"'
+      scope: punctuation.definition.string.begin.bt
+      push: double_quoted_string
+
+    # 模板字符串
+    - match: '`'
+      scope: punctuation.definition.string.begin.bt
+      push: template_string
+
+    # 语言变量，如 'this'
+    - match: '\b(this)\b'
+      scope: variable.language.bt
+
+    # 方法调用
+    - match: '\b([a-zA-Z_][a-zA-Z0-9_]*)\b(?=\()'
+      scope: entity.name.function.bt
+
+    # 支持的函数
+    - match: '\b(get_type|bool|include|date|file)\b'
+      scope: support.function.bt
+
+    # Web 相关函数
+    - match: '\b(header|status_code|redirect)\b'
+      scope: support.web.function.bt
+
+    # Web 相关变量
+    - match: '\b(url|get|post|method|server)\b'
+      scope: variable.web.variable.bt
+
+    # 数字类型相关支持
+    - match: '\b(len|to_fixed|to_string|to_exponential)\b'
+      scope: support.type.number.bt
+
+    # 字符串类型相关支持
+    - match: '\b(len|char|char_code|concat|ends_with|contain|index|last_index|repeat|replace|search|match|slice|split|starts_with|substring|to_lowercase|to_uppercase|trim|to_string|escape_html|unescape_html|parse)\b'
+      scope: support.type.string.bt
+
+    # 数组类型相关支持
+    - match: '\b(len|join|each|pop|push|shift|unshift|sort|reverse|slice|splice|concat|contain|index|last_index|find|find_index|find_last|find_last_index|every|some|filter|map|reduce|reduce_right|fill|flat|flat_map|keys|values|entries)\b'
+      scope: support.type.array.bt
+
+    # 对象类型相关支持
+    - match: '\b(len|join|each|pop|push|shift|unshift|sort|reverse|slice|splice|concat|contain|index|last_index|find|find_index|find_last|find_last_index|every|some|filter|map|reduce|reduce_right|fill|flat|flat_map|keys|values|entries)\b'
+      scope: support.type.object.bt
+
+  # 单行注释上下文
+  line_comment:
+    - meta_scope: comment.line.double-slash.bt
+    - match: $
+      pop: true
+
+  # 多行注释上下文
+  block_comment:
+    - meta_scope: comment.block.bt
+    - match: '\\*/'
+      scope: punctuation.definition.comment.end.bt
+      pop: true
+
+  # 正则表达式上下文
+  regex:
+    - meta_scope: string.regexp.bt
+    - match: '\\.'
+      scope: constant.character.escape.bt
+    - match: '/[gimsuy]*'
+      scope: punctuation.definition.string.end.bt
+      pop: true
+
+  # 单引号字符串上下文
+  single_quoted_string:
+    - meta_scope: string.quoted.single.bt
+    - match: '\\\\.'
+      scope: constant.character.escape.bt
+    - match: "'"
+      scope: punctuation.definition.string.end.bt
+      pop: true
+
+  # 双引号字符串上下文
+  double_quoted_string:
+    - meta_scope: string.quoted.double.bt
+    - match: '\\\\.'
+      scope: constant.character.escape.bt
+    - match: '"'
+      scope: punctuation.definition.string.end.bt
+      pop: true
+
+  # 模板字符串上下文
+  template_string:
+    - meta_scope: string.quoted.template.bt
+    - match: '\\\\.'
+      scope: constant.character.escape.bt
+    - match: '\\$\\{'
+      scope: punctuation.section.embedded.begin.bt
+      push: interpolation
+    - match: '`'
+      scope: punctuation.definition.string.end.bt
+      pop: true
+
+  # 插值上下文
+  interpolation:
+    - meta_scope: string.interpolation.bt
+    - match: '\\}'
+      scope: punctuation.section.embedded.end.bt
+      pop: true
+    - match: '\b([a-zA-Z_][a-zA-Z0-9_]*)\b'
+      scope: variable.other.bt

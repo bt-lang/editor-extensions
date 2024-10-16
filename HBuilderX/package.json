@@ -1,0 +1,68 @@
+{
+  "name": "bt-lang",
+  "displayName": "BT-lang",
+  "description": "A code highlighting extension for the BT programming language.",
+  "version": "1.0.0",
+  "publisher": "BT",
+  "engines": {
+    "HBuilderX": "^2.7.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./extension",
+  "activationEvents": [
+	"onCommand:extension.runBT"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "bt",
+        "aliases": [
+          "BT",
+          "BT Language"
+        ],
+        "extensions": [
+          ".bt"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bt",
+        "scopeName": "source.bt",
+        "path": "./syntaxes/bt.tmLanguage.json"
+      }
+    ],
+	"commands": [{
+		"command": "extension.runBT",
+		"title": "运行BT"
+	}],
+	"menus": {
+		"editor/context": [
+			{
+				"command": "extension.runBT",
+				"group": "copy",
+				"when": "langId == 'bt'"
+			},
+			{
+				"group": "copy"
+			}
+		],
+		"menubar/run": [
+			{
+				"command": "extension.runBT",
+				"group": "0_foot",
+				"when": "editorTextFocus"
+			},
+			{
+				"group": "0_foot"
+			}
+		]
+	}
+  },
+  "extensionDependencies": [
+  	"plugin-manager"
+  ],
+  "dependencies": {}
+}
