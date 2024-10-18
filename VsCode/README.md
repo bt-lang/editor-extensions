@@ -1,17 +1,8 @@
-# bt Language Support
+# BT编程语言
+这是一个用于BT编程语言的代码高亮和代码编译的扩展，方便用于开发。
 
-This is a Visual Studio Code extension that provides syntax highlighting for the bt programming language.
-
-## Features
-
-- Syntax highlighting for .bt files
-- Supports comments, keywords, strings, and numbers
-
-## How to use
-
-1. Install the extension from the VSIX file.
-2. Open a .bt file in Visual Studio Code to see the syntax highlighting.
+# bt Language
+This is an extension for code highlighting and compilation in BT programming language, which is convenient for development.
 
 ## License
-
 MIT

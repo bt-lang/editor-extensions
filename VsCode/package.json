@@ -1,14 +1,14 @@
 {
   "name": "bt-lang",
-  "displayName": "BT-lang",
-  "description": "A code highlighting extension for the BT programming language.",
+  "displayName": "bt-lang",
+  "description": "%description%",
   "version": "1.0.0",
-  "publisher": "BT",
+  "publisher": "bt-lang",
   "icon": "image/icon.png",
   "homepage": "https://bts.wang",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bt-lang/editor-extensions"
+    "url": "https://github.com/bt-lang/editor-extensions/tree/main/VsCode"
   },
   "engines": {
     "vscode": "^1.60.0"
@@ -19,6 +19,7 @@
   "keywords": [
     "bt",
     "bt-lang",
+    "bt compilation",
     "code highlighting",
     "syntax highlighting"
   ],
@@ -51,7 +52,7 @@
       "activitybar": [
         {
           "id": "runBTScript",
-          "title": "运行bt脚本",
+          "title": "%activitybarTitle%",
           "icon": "image/run.svg"
         }
       ]
@@ -60,14 +61,14 @@
       "runBTScript": [
         {
           "id": "runBTScript",
-          "name": "运行bt脚本"
+          "name": "%activitybarTitle%"
         }
       ]
     },
     "viewsWelcome": [
       {
         "view": "runBTScript",
-        "contents": "默认使用当前目录的BT语言编译器，若不存在，则使用本扩展内置的BT语言编译器\n[运行](command:extension.runBTScript)\n\n官网：[https://bts.wang](https://bts.wang)\n文档：[https://bts.wang/doc](https://bts.wang/doc)"
+        "contents": "%activitybarContent%"
       }
     ],
     "commands": [

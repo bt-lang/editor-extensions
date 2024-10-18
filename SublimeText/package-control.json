@@ -1,0 +1,9 @@
+{
+    "name": "bt-lang",
+    "description": "Code Highlighting and Compilation in BT Programming Language.",
+    "author": "bt-lang",
+    "version": "1.0.0",
+    "url": "https://github.com/bt-lang/editor-extensions/tree/main/SublimeText",
+    "dependencies": [],
+    "platforms": ["*"]
+  }

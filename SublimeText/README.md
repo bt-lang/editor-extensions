@@ -1,2 +1,2 @@
 # About
-These are some editor extensions for developing BT language
+Code Highlighting and Compilation in BT Programming Language
