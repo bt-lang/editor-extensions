@@ -5,7 +5,6 @@ const fs = require('fs');
 const os = require('os');
 //该方法将在插件激活的时候调用
 function activate(context) {
-	let terminal;
 	let outputChannel = hx.window.createOutputChannel("BT");
 	let disposable = hx.commands.registerCommand('extension.runBT', () => {
 		outputChannel.show();

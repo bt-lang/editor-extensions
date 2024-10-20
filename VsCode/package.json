@@ -1,88 +1,85 @@
 {
-  "name": "bt-lang",
-  "displayName": "bt-lang",
-  "description": "%description%",
-  "version": "1.0.0",
-  "publisher": "bt-lang",
-  "icon": "image/icon.png",
-  "homepage": "https://bts.wang",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bt-lang/editor-extensions/tree/main/VsCode"
-  },
-  "engines": {
-    "vscode": "^1.60.0"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "keywords": [
-    "bt",
-    "bt-lang",
-    "bt compilation",
-    "code highlighting",
-    "syntax highlighting"
-  ],
-  "main": "./extension.js",
-  "activationEvents": [
-    "onCommand:bt-lang.highlight"
-  ],
-  "contributes": {
-    "languages": [
-      {
-        "id": "bt",
-        "aliases": [
-          "BT",
-          "BT Language"
-        ],
-        "extensions": [
-          ".bt"
-        ],
-        "configuration": "./syntaxes/language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "bt",
-        "scopeName": "source.bt",
-        "path": "./syntaxes/bt.tmLanguage.json"
-      }
-    ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "runBTScript",
-          "title": "%activitybarTitle%",
-          "icon": "image/run.svg"
-        }
-      ]
-    },
-    "views": {
-      "runBTScript": [
-        {
-          "id": "runBTScript",
-          "name": "%activitybarTitle%"
-        }
-      ]
-    },
-    "viewsWelcome": [
-      {
-        "view": "runBTScript",
-        "contents": "%activitybarContent%"
-      }
-    ],
-    "commands": [
-      {
-        "command": "bt-lang.highlight",
-        "title": "BT Language Code Highlight"
-      },
-      {
-        "command": "extension.runBTScript",
-        "title": "Run BT Script"
-      }
-    ]
-  },
-  "dependencies": {
-    "bt-lang": "file:"
-  }
+	"name": "bt-lang",
+	"displayName": "bt-lang",
+	"description": "%description%",
+	"version": "1.0.1",
+	"publisher": "bt-lang",
+	"icon": "image/icon.png",
+	"homepage": "https://btlang.org",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bt-lang/editor-extensions/tree/main/VsCode"
+	},
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"bt",
+		"bt-lang",
+		"bt compilation",
+		"code highlighting",
+		"syntax highlighting"
+	],
+	"main": "./extension.js",
+	"activationEvents": [
+		"onCommand:bt-lang.highlight"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "bt",
+				"aliases": [
+					"BT",
+					"BT Language"
+				],
+				"extensions": [
+					".bt"
+				],
+				"configuration": "./syntaxes/language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "bt",
+				"scopeName": "source.bt",
+				"path": "./syntaxes/bt.tmLanguage.json"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "runBTScript",
+					"title": "%activitybarTitle%",
+					"icon": "image/run.svg"
+				}
+			]
+		},
+		"views": {
+			"runBTScript": [
+				{
+					"id": "runBTScript",
+					"name": "%activitybarTitle%"
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "runBTScript",
+				"contents": "%activitybarContent%"
+			}
+		],
+		"commands": [
+			{
+				"command": "bt-lang.highlight",
+				"title": "BT Language Code Highlight"
+			},
+			{
+				"command": "extension.runBTScript",
+				"title": "Run BT Script"
+			}
+		]
+	}
 }

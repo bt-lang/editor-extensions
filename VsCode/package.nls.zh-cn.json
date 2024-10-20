@@ -1,0 +1,5 @@
+{
+  "description": "用于支持BT编程语言的代码高亮显示和编译功能。",
+  "activitybarTitle": "运行bt脚本",
+  "activitybarContent": "默认使用当前目录的BT语言编译器。\n[运行](command:extension.runBTScript)\n\n官网：[https://btlang.org](https://btlang.org)\n文档：[https://btlang.org/doc](https://btlang.org/doc)"
+}

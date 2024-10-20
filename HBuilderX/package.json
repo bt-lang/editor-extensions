@@ -1,9 +1,9 @@
 {
   "name": "bt-lang",
-  "displayName": "BT-lang",
-  "description": "A code highlighting extension for the BT programming language.",
+  "displayName": "bt-lang",
+  "description": "用于支持BT编程语言的代码高亮显示和编译功能。",
   "version": "1.0.0",
-  "publisher": "BT",
+  "publisher": "bt-lang",
   "engines": {
     "HBuilderX": "^2.7.0"
   },
