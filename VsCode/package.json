@@ -2,7 +2,7 @@
 	"name": "bt-lang",
 	"displayName": "bt-lang",
 	"description": "%description%",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"publisher": "bt-lang",
 	"icon": "image/icon.png",
 	"homepage": "https://btlang.org",
@@ -81,5 +81,8 @@
 				"title": "Run BT Script"
 			}
 		]
+	},
+	"dependencies": {
+		"bt-lang": "file:"
 	}
 }
