@@ -2,7 +2,7 @@
   "name": "bt-lang",
   "displayName": "bt-lang",
   "description": "用于支持BT编程语言的代码高亮显示和编译功能。",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "publisher": "bt-lang",
   "engines": {
     "HBuilderX": "^2.7.0"
@@ -12,7 +12,7 @@
   ],
   "main": "./extension",
   "activationEvents": [
-	"onCommand:extension.runBT"
+    "onCommand:extension.runBT"
   ],
   "contributes": {
     "languages": [
@@ -34,35 +34,39 @@
         "path": "./syntaxes/bt.tmLanguage.json"
       }
     ],
-	"commands": [{
-		"command": "extension.runBT",
-		"title": "运行BT"
-	}],
-	"menus": {
-		"editor/context": [
-			{
-				"command": "extension.runBT",
-				"group": "copy",
-				"when": "langId == 'bt'"
-			},
-			{
-				"group": "copy"
-			}
-		],
-		"menubar/run": [
-			{
-				"command": "extension.runBT",
-				"group": "0_foot",
-				"when": "editorTextFocus"
-			},
-			{
-				"group": "0_foot"
-			}
-		]
-	}
+    "commands": [
+      {
+        "command": "extension.runBT",
+        "title": "运行BT"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.runBT",
+          "group": "copy",
+          "when": "langId == 'bt'"
+        },
+        {
+          "group": "copy"
+        }
+      ],
+      "menubar/run": [
+        {
+          "command": "extension.runBT",
+          "group": "0_foot",
+          "when": "editorTextFocus"
+        },
+        {
+          "group": "0_foot"
+        }
+      ]
+    }
   },
   "extensionDependencies": [
-  	"plugin-manager"
+    "plugin-manager"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "bt-lang": "file:"
+  }
 }

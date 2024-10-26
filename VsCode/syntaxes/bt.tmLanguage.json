@@ -4,6 +4,48 @@
   "scopeName": "source.bt",
   "patterns": [
     {
+      "name": "comment.block.bt",
+      "begin": "^\\s*#\\s*TPL\\b.*?\\n",
+      "end": "",
+      "patterns": [
+        {
+          "name": "string.quoted.template.bt",
+          "begin": "",
+          "end": "",
+          "patterns": [
+            {
+              "name": "string.interpolation.bt",
+              "begin": "\\$\\{",
+              "end": "\\}",
+              "patterns": [
+                {
+                  "name": "variable.other.bt",
+                  "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                }
+              ]
+            },
+            {
+              "name": "string.interpolation.bt",
+              "begin": "\\{%",
+              "end": "%\\}",
+              "patterns": [
+                {
+                  "include": "#bt-code"
+                }
+              ]
+            },
+            {
+              "name": "constant.character.escape.bt",
+              "match": "\\\\."
+            },
+            {
+              "include": "text.html.basic"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "comment.line.double-slash.bt",
       "match": "//.*$"
     },
