@@ -1,0 +1,41 @@
+{
+    "name": "bt-theme",
+    "displayName": "bt-theme",
+    "description": "BT语言出品的护眼主题",
+    "version": "1.0.1",
+    "publisher": "bt-lang",
+    "icon": "logo.png",
+    "homepage": "https://btlang.org",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bt-lang/editor-extensions/tree/main/Theme"
+    },
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "VSCode",
+        "ui",
+        "Themes"
+    ],
+    "extensionKind": [
+        "ui",
+        "workspace"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "ICEUI",
+                "uiTheme": "vs",
+                "path": "./themes/iceui-color-theme.json"
+            }
+        ]
+    },
+    "dependencies": {
+        "bt-theme": "file:",
+        "iceui-theme": "file:"
+    }
+}

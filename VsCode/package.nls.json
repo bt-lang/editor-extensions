@@ -1,5 +1,5 @@
 {
   "description": "Used to support code highlighting and compilation functions for BT programming language.",
   "activitybarTitle": "Run BT script",
-  "activitybarContent": "Default use of BT language compiler in the current directory.\n[Run](command:extension.runBTScript)\n\nOfficial website：[https://btlang.org](https://btlang.org)\nDocument：[https://btlang.org/doc](https://btlang.org/doc)"
+  "activitybarContent": "Default use of BT language compiler in the current directory.\n[Run](command:extension.runBTScript)\n\nOfficial website：[https://btlang.org](https://btlang.org)\nDocument：[https://btlang.org/docs](https://btlang.org/docs)"
 }

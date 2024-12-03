@@ -5,7 +5,7 @@
 运行调试时，可直接右键选择`运行BT`，或点击菜单栏`运行`-`运行BT`。
 
 官网：[https://btlang.org](https://btlang.org)
-BT语言文档：[https://btlang.org/doc](https://btlang.org/doc)
+BT语言文档：[https://btlang.org/docs](https://btlang.org/docs)
 
 ### BT programming language
 
@@ -15,7 +15,7 @@ Please place the BT language compiler in the root directory of the project, and 
 When running debugging, you can directly right-click and select 'Run BT', or click on the menu bar 'Run' - 'Run BT'.
 
 Official website: [https://btlang.org](https://btlang.org)
-BT language document: [https://btlang.org/doc](https://btlang.org/doc)
+BT language document: [https://btlang.org/docs](https://btlang.org/docs)
 
 ### License
 MIT
